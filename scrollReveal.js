@@ -1,26 +1,34 @@
 ﻿window.observeRestaurantCards = () => {
-
     const cards = document.querySelectorAll('.restaurant-card');
 
-    if (!cards.length) return;
-
-    const observer = new IntersectionObserver((entries, obs) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-                obs.unobserve(entry.target); // 👈 يتحرك مرة واحدة
+            const card = entry.target;
+
+            // حالة ثابتة لكل كارت
+            if (!card.__visible) card.__visible = false;
+
+            if (entry.isIntersecting && !card.__visible) {
+                card.__visible = true;
+                card.classList.add('show');
+            }
+
+            if (!entry.isIntersecting && card.__visible) {
+                card.__visible = false;
+                card.classList.remove('show');
             }
         });
     }, {
-        threshold: 0.3   // 👈 الكارت يكون واضح فعلًا
+        threshold: 0.35,
+        rootMargin: "0px 0px -15% 0px"
     });
 
     cards.forEach((card, index) => {
-        card.style.transitionDelay = `${index * 150}ms`; // بدل 70ms → Animation تدريجي أوضح
+        card.style.transitionDelay = `${index * 60}ms`;
         observer.observe(card);
     });
-
 };
+
 window.bootstrapModal = {
     show: function (id) {
         const modal = new bootstrap.Modal(document.getElementById(id));
