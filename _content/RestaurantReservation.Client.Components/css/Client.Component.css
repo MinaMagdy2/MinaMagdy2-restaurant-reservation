@@ -664,18 +664,20 @@ h1.my-custom-heading {
         }
 }
 /* iOS Safari blur fix */
+/* iOS REAL FIX */
 @supports (-webkit-touch-callout: none) {
 
     .overlay {
-        backdrop-filter: blur(1.5px);
-        -webkit-backdrop-filter: blur(1.5px);
-        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: rgba(0, 0, 0, 0.65) !important;
     }
 
     .rooms-panel,
     .room-item {
-        backdrop-filter: blur(6px);
-        -webkit-backdrop-filter: blur(6px);
-        background: rgba(30, 30, 30, 0.85);
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: rgba(30, 30, 30, 0.88) !important;
     }
 }
+
