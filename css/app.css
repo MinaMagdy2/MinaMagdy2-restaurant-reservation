@@ -208,49 +208,51 @@ a, .btn-link {
 }
 .bottom-nav {
     position: fixed;
-    bottom: 20px;
-    left: 0;
-    width: 100%;
-    padding: 0 24px;
-    display: flex;
-    justify-content: space-between;
-    z-index: 999;
-    pointer-events: none; /* مهم */
-}
-
-.nav-btn {
-    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
+    padding: 16px 24px;
+
     display: flex;
     justify-content: space-between;
-    padding: 16px 24px;
+
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+
     z-index: 999;
 }
 
+.nav-btn {
+    pointer-events: auto;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Back */
 .back-btn {
     background-color: #6c757d;
     color: white;
 }
 
-    .back-btn:hover {
-        background-color: #5a6268;
-        transform: translateY(-2px);
-    }
+.back-btn:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
 
+/* Exit */
 .exit-btn {
     background-color: #dc3545;
     color: white;
 }
 
-    .exit-btn:hover {
-        background-color: #bb2d3b;
-        transform: translateY(-2px);
-    }
+.exit-btn:hover {
+    background-color: #bb2d3b;
+    transform: translateY(-2px);
+}
 
 .nav-btn:disabled {
     opacity: 0.5;
