@@ -1,5 +1,5 @@
-﻿.body {
-    background-image: url('/MinaMagdy2-restaurant-reservation/img/background.jpg');
+.body {
+  background-image: url('/MinaMagdy2-restaurant-reservation/img/background.jpg');
     background-size: cover;
     background-position: center;
     min-height: 100vh;
@@ -11,7 +11,6 @@
 :root {
     --vh: 1vh;
 }
-
 .main-container.loading {
     pointer-events: none;
     user-select: none;
@@ -45,7 +44,7 @@ h1.my-custom-heading {
     -webkit-backdrop-filter: blur(3px); /* لازم للـ iOS */
     backdrop-filter: blur(3px);
     z-index: 1;
-    opacity: 1;
+  opacity: 1;
 }
 
 
@@ -105,21 +104,24 @@ h1.my-custom-heading {
 }
 
 .num-btn {
-    aspect-ratio: 1 / 1; /* يضمن مربع كامل */
-    font-size: clamp(1.2rem, 3vw, 1.5rem);
-    background-color: rgba(255, 255, 255, 0.15);
-    color: rgb(255, 255, 255);
-    border-radius: 12px;
-    transition: all 0.35s ease;
-    -webkit-backdrop-filter: blur(10px);
-    font-size: x-large !important;
+  width: 60px;
+  height: 60px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.4rem;
+  line-height: 1;
+
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+
+  border-radius: 12px;
+
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
-    .num-btn svg {
-        width: 24px;
-        height: 24px;
-        fill: currentColor;
-        pointer-events: none;
-    }
 
 
 
@@ -339,11 +341,9 @@ h1.my-custom-heading {
     .btn-confirm-all i {
         font-size: 1.2rem;
     }
-
 .content-wrapper {
     padding: 40px 40px 40px 31%;
 }
-
 .popup-paper {
     position: absolute;
     top: 50%;
@@ -390,6 +390,7 @@ h1.my-custom-heading {
         max-height: none;
         order: 1;
         left: 20%;
+    
     }
 
     .main-input-section {
@@ -405,15 +406,15 @@ h1.my-custom-heading {
         position: relative;
         width: 100%;
         max-width: 50%;
+        }
+
+        .num-btn {
+            max-width: none;
+        }
     }
 
-    .num-btn {
-        max-width: none;
-    }
-}
 
-
-/* Mobile devices */
+    /* Mobile devices */
 @media (min-width: 500px) and (max-width: 768px) {
     .mian {
         padding: 10px;
@@ -503,143 +504,141 @@ h1.my-custom-heading {
 }
 
 
-/* Small mobile devices */
-@media (max-width: 480px) {
-    .room-input-wrapper {
-        max-width: 80%;
+    /* Small mobile devices */
+    @media (max-width: 480px) {
+        .room-input-wrapper {
+            max-width: 80%;
+        }
+
+        .body {
+            padding: 5px;
+        }
+
+        .content-wrapper {
+            padding: 8%;
+            gap: 15px;
+            display:block;
+        }
+
+        .rooms-panel {
+            padding: 16px;
+        }
+
+        .room-title {
+            font-size: 1.5rem;
+        }
+
+        .keypad-container {
+            position: relative;
+            gap: 8px;
+            width: 80%;
+            max-width: 100%;
+        }
+
+        .num-btn {
+            padding: 10px !important;
+            font-size: 1.2rem !important;
+        }
+
+        .room-input {
+            padding: 6px 45px 12px 12px;
+            font-size: 1.2rem !important;
+        }
+
+        .btn-toggle-visibility {
+            width: 35px;
+            height: 35px;
+            top: 6px;
+            right: 6px;
+        }
+
+        .popup-paper {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0.5rem !important;
+            top: auto;
+        }
     }
 
-    .body {
-        padding: 5px;
+
+
+    /* Large screens */
+    @media (min-width: 1200px) {
+        .content-wrapper:has(.rooms-panel) {
+            padding: 40px !important;
+        }
+
+        .content-wrapper {
+            place-items: center;
+            height: 100%;
+            padding: 5%;
+            box-sizing: border-box;
+            display: flex;
+        }
+
+        .room-input-wrapper {
+            position: relative;
+            width: 56%;
+            max-width: 400px;
+        }
+
+        .rooms-panel {
+            max-width: 450px;
+            width: 417px;
+        }
+
+        .main-input-section {
+            max-width: 44%;
+        }
+        .keypad-container {
+            max-width: 67%;
+        }
+        .keypad-container {
+            max-width: 56%;
+        }
+
+        .num-btn {
+            max-width: 140px;
+        }
+
+        .popup-paper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            background-color: rgba(30, 30, 30, 0.95);
+            border-radius: 12px;
+            padding: 20px;
+            color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+            width: 420px;
+            max-width: 90vw;
+        }
     }
 
-    .content-wrapper {
-        padding: 8%;
-        gap: 15px;
-        display: block;
+
+
+
+    @media (max-width: 768px) {
+        .popup-paper {
+            width: 90vw;
+            max-width: 400px;
+            padding: 15px;
+        }
     }
 
-    .rooms-panel {
-        padding: 16px;
-    }
-
-    .room-title {
-        font-size: 1.5rem;
-    }
-
-    .keypad-container {
-        position: relative;
-        gap: 8px;
-        width: 80%;
-        max-width: 100%;
-    }
-
-    .num-btn {
-        padding: 10px !important;
-        font-size: 1.2rem !important;
-    }
-
-    .room-input {
-        padding: 6px 45px 12px 12px;
-        font-size: 1.2rem !important;
-    }
-
-    .btn-toggle-visibility {
-        width: 35px;
-        height: 35px;
-        top: 6px;
-        right: 6px;
-    }
-
-    .popup-paper {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 0.5rem !important;
-        top: auto;
-    }
-}
-
-
-
-/* Large screens */
-@media (min-width: 1200px) {
-    .content-wrapper:has(.rooms-panel) {
-        padding: 40px !important;
-    }
-
-    .content-wrapper {
-        place-items: center;
-        height: 100%;
-        padding: 5%;
-        box-sizing: border-box;
+    .mud-picker-container {
         display: flex;
+        flex-direction: column;
+        border-radius: inherit;
+        background-color: whitesmoke;
+        z-index: 3;
     }
 
-    .room-input-wrapper {
-        position: relative;
-        width: 56%;
-        max-width: 400px;
-    }
-
-    .rooms-panel {
-        max-width: 450px;
-        width: 417px;
-    }
-
-    .main-input-section {
-        max-width: 44%;
-    }
-
-    .keypad-container {
-        max-width: 67%;
-    }
-
-    .keypad-container {
-        max-width: 56%;
-    }
-
-    .num-btn {
-        max-width: 140px;
-    }
-
-    .popup-paper {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 5;
-        background-color: rgba(30, 30, 30, 0.95);
-        border-radius: 12px;
-        padding: 20px;
-        color: white;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-        width: 420px;
-        max-width: 90vw;
-    }
-}
-
-
-
-
-@media (max-width: 768px) {
-    .popup-paper {
-        width: 90vw;
-        max-width: 400px;
-        padding: 15px;
-    }
-}
-
-.mud-picker-container {
-    display: flex;
-    flex-direction: column;
-    border-radius: inherit;
-    background-color: whitesmoke;
-    z-index: 3;
-}
-
-    /*    .keypad-container {
+/*    .keypad-container {
         max-width: 67%;
     }*/
 
@@ -650,16 +649,16 @@ h1.my-custom-heading {
         height: 52px;
     }
 
-.buttons button {
-    border: 1px solid;
-    border-radius: 50px;
-}
-
-@media (max-width: 768px) {
-    .buttons button span {
-        font-size: 20px;
+    .buttons button {
+        border: 1px solid;
+        border-radius: 50px;
     }
-}
+
+    @media (max-width: 768px) {
+        .buttons button span {
+            font-size: 20px;
+        }
+    }
 
 
 /* iOS ONLY */
