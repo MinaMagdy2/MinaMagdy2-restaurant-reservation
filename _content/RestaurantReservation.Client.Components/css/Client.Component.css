@@ -1,5 +1,5 @@
 ﻿.body {
-    background-image: url('/img/background.jpg');
+    background-image: url('/MinaMagdy2-restaurant-reservation/img/background.jpg');
     background-size: cover;
     background-position: center;
     min-height: 100vh;
@@ -11,6 +11,7 @@
 :root {
     --vh: 1vh;
 }
+
 .main-container.loading {
     pointer-events: none;
     user-select: none;
@@ -41,9 +42,12 @@ h1.my-custom-heading {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
+    -webkit-backdrop-filter: blur(3px); /* لازم للـ iOS */
     backdrop-filter: blur(3px);
     z-index: 1;
+    opacity: 1;
 }
+
 
 /* Main Input Section */
 .main-input-section {
@@ -101,17 +105,23 @@ h1.my-custom-heading {
 }
 
 .num-btn {
-    width: 100% !important;
-    aspect-ratio: 1;
-    max-width: 120px;
-    height: auto !important;
-    font-size: clamp(1.2rem, 3vw, 1.5rem) !important;
-    background-color: rgba(255, 255, 255, 0.15) !important;
-    color: #fff !important;
-    border-radius: 12px !important;
-    transition: all 0.3s ease;
-    padding: 15px !important;
+    aspect-ratio: 1 / 1; /* يضمن مربع كامل */
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    background-color: rgba(255, 255, 255, 0.15);
+    color: rgb(255, 255, 255);
+    border-radius: 12px;
+    transition: all 0.35s ease;
+    -webkit-backdrop-filter: blur(10px);
+    font-size: x-large !important;
 }
+    .num-btn svg {
+        width: 24px;
+        height: 24px;
+        fill: currentColor;
+        pointer-events: none;
+    }
+
+
 
     .num-btn:hover:not(:disabled) {
         background-color: rgba(255, 255, 255, 0.3) !important;
@@ -329,9 +339,11 @@ h1.my-custom-heading {
     .btn-confirm-all i {
         font-size: 1.2rem;
     }
+
 .content-wrapper {
     padding: 40px 40px 40px 31%;
 }
+
 .popup-paper {
     position: absolute;
     top: 50%;
@@ -378,7 +390,6 @@ h1.my-custom-heading {
         max-height: none;
         order: 1;
         left: 20%;
-    
     }
 
     .main-input-section {
@@ -394,15 +405,15 @@ h1.my-custom-heading {
         position: relative;
         width: 100%;
         max-width: 50%;
-        }
-
-        .num-btn {
-            max-width: none;
-        }
     }
 
+    .num-btn {
+        max-width: none;
+    }
+}
 
-    /* Mobile devices */
+
+/* Mobile devices */
 @media (min-width: 500px) and (max-width: 768px) {
     .mian {
         padding: 10px;
@@ -492,141 +503,143 @@ h1.my-custom-heading {
 }
 
 
-    /* Small mobile devices */
-    @media (max-width: 480px) {
-        .room-input-wrapper {
-            max-width: 80%;
-        }
-
-        .body {
-            padding: 5px;
-        }
-
-        .content-wrapper {
-            padding: 8%;
-            gap: 15px;
-            display:block;
-        }
-
-        .rooms-panel {
-            padding: 16px;
-        }
-
-        .room-title {
-            font-size: 1.5rem;
-        }
-
-        .keypad-container {
-            position: relative;
-            gap: 8px;
-            width: 80%;
-            max-width: 100%;
-        }
-
-        .num-btn {
-            padding: 10px !important;
-            font-size: 1.2rem !important;
-        }
-
-        .room-input {
-            padding: 6px 45px 12px 12px;
-            font-size: 1.2rem !important;
-        }
-
-        .btn-toggle-visibility {
-            width: 35px;
-            height: 35px;
-            top: 6px;
-            right: 6px;
-        }
-
-        .popup-paper {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 0.5rem !important;
-            top: auto;
-        }
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .room-input-wrapper {
+        max-width: 80%;
     }
 
-
-
-    /* Large screens */
-    @media (min-width: 1200px) {
-        .content-wrapper:has(.rooms-panel) {
-            padding: 40px !important;
-        }
-
-        .content-wrapper {
-            place-items: center;
-            height: 100%;
-            padding: 5%;
-            box-sizing: border-box;
-            display: flex;
-        }
-
-        .room-input-wrapper {
-            position: relative;
-            width: 56%;
-            max-width: 400px;
-        }
-
-        .rooms-panel {
-            max-width: 450px;
-            width: 417px;
-        }
-
-        .main-input-section {
-            max-width: 44%;
-        }
-        .keypad-container {
-            max-width: 67%;
-        }
-        .keypad-container {
-            max-width: 56%;
-        }
-
-        .num-btn {
-            max-width: 140px;
-        }
-
-        .popup-paper {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 5;
-            background-color: rgba(30, 30, 30, 0.95);
-            border-radius: 12px;
-            padding: 20px;
-            color: white;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-            width: 420px;
-            max-width: 90vw;
-        }
+    .body {
+        padding: 5px;
     }
 
-
-
-
-    @media (max-width: 768px) {
-        .popup-paper {
-            width: 90vw;
-            max-width: 400px;
-            padding: 15px;
-        }
+    .content-wrapper {
+        padding: 8%;
+        gap: 15px;
+        display: block;
     }
 
-    .mud-picker-container {
+    .rooms-panel {
+        padding: 16px;
+    }
+
+    .room-title {
+        font-size: 1.5rem;
+    }
+
+    .keypad-container {
+        position: relative;
+        gap: 8px;
+        width: 80%;
+        max-width: 100%;
+    }
+
+    .num-btn {
+        padding: 10px !important;
+        font-size: 1.2rem !important;
+    }
+
+    .room-input {
+        padding: 6px 45px 12px 12px;
+        font-size: 1.2rem !important;
+    }
+
+    .btn-toggle-visibility {
+        width: 35px;
+        height: 35px;
+        top: 6px;
+        right: 6px;
+    }
+
+    .popup-paper {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 0.5rem !important;
+        top: auto;
+    }
+}
+
+
+
+/* Large screens */
+@media (min-width: 1200px) {
+    .content-wrapper:has(.rooms-panel) {
+        padding: 40px !important;
+    }
+
+    .content-wrapper {
+        place-items: center;
+        height: 100%;
+        padding: 5%;
+        box-sizing: border-box;
         display: flex;
-        flex-direction: column;
-        border-radius: inherit;
-        background-color: whitesmoke;
-        z-index: 3;
     }
 
-/*    .keypad-container {
+    .room-input-wrapper {
+        position: relative;
+        width: 56%;
+        max-width: 400px;
+    }
+
+    .rooms-panel {
+        max-width: 450px;
+        width: 417px;
+    }
+
+    .main-input-section {
+        max-width: 44%;
+    }
+
+    .keypad-container {
+        max-width: 67%;
+    }
+
+    .keypad-container {
+        max-width: 56%;
+    }
+
+    .num-btn {
+        max-width: 140px;
+    }
+
+    .popup-paper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 5;
+        background-color: rgba(30, 30, 30, 0.95);
+        border-radius: 12px;
+        padding: 20px;
+        color: white;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+        width: 420px;
+        max-width: 90vw;
+    }
+}
+
+
+
+
+@media (max-width: 768px) {
+    .popup-paper {
+        width: 90vw;
+        max-width: 400px;
+        padding: 15px;
+    }
+}
+
+.mud-picker-container {
+    display: flex;
+    flex-direction: column;
+    border-radius: inherit;
+    background-color: whitesmoke;
+    z-index: 3;
+}
+
+    /*    .keypad-container {
         max-width: 67%;
     }*/
 
@@ -637,16 +650,16 @@ h1.my-custom-heading {
         height: 52px;
     }
 
-    .buttons button {
-        border: 1px solid;
-        border-radius: 50px;
-    }
+.buttons button {
+    border: 1px solid;
+    border-radius: 50px;
+}
 
-    @media (max-width: 768px) {
-        .buttons button span {
-            font-size: 20px;
-        }
+@media (max-width: 768px) {
+    .buttons button span {
+        font-size: 20px;
     }
+}
 
 
 /* iOS ONLY */
@@ -664,18 +677,19 @@ h1.my-custom-heading {
         }
 }
 /* iOS Safari blur fix */
+/* iOS REAL FIX */
 @supports (-webkit-touch-callout: none) {
 
     .overlay {
-        backdrop-filter: blur(1.5px);
-        -webkit-backdrop-filter: blur(1.5px);
-        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: rgba(0, 0, 0, 0.65) !important;
     }
 
     .rooms-panel,
     .room-item {
-        backdrop-filter: blur(6px);
-        -webkit-backdrop-filter: blur(6px);
-        background: rgba(30, 30, 30, 0.85);
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: rgba(30, 30, 30, 0.88) !important;
     }
 }
