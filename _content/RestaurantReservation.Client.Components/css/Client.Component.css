@@ -1,6 +1,6 @@
 ﻿.body {
-  background-image: url('/MinaMagdy2-restaurant-reservation/img/background.jpg');
-     background-size: cover;
+    background-image: url('/img/background.jpg');
+    background-size: cover;
     background-position: center;
     min-height: 100vh;
     position: relative;
@@ -491,6 +491,7 @@ h1.my-custom-heading {
     }
 }
 
+
     /* Small mobile devices */
     @media (max-width: 480px) {
         .room-input-wrapper {
@@ -647,4 +648,34 @@ h1.my-custom-heading {
         }
     }
 
-    
+
+/* iOS ONLY */
+@supports (-webkit-touch-callout: none) {
+    .num-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 !important;
+        line-height: 1 !important;
+    }
+
+        .num-btn .key-icon {
+            font-size: 1.5rem;
+        }
+}
+/* iOS Safari blur fix */
+@supports (-webkit-touch-callout: none) {
+
+    .overlay {
+        backdrop-filter: blur(1.5px);
+        -webkit-backdrop-filter: blur(1.5px);
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+    .rooms-panel,
+    .room-item {
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        background: rgba(30, 30, 30, 0.85);
+    }
+}
