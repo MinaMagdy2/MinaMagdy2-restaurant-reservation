@@ -42,4 +42,14 @@ window.tryHistoryBack = () => {
     }
     return false;
 };
+window.disableBrowserBack = () => {
+    // كل مرة يحصل popstate (يعني المستخدم ضغط Back)
+    window.addEventListener('popstate', function (event) {
+        // نرجع نفس الصفحة لتمنع الرجوع
+        history.pushState(null, document.title, location.href);
+    });
+
+    // نضيف entry جديدة للـ history بحيث يكون هناك مكان آمن
+    history.pushState(null, document.title, location.href);
+};
 
